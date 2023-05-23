@@ -1,3 +1,4 @@
+//custom date format
 function format(inputDate) {
     let date, month, year;
   

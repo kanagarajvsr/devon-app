@@ -19,6 +19,7 @@ const presenceStatus = {
     'picked up': 'picked up to unknown'
 }
 
+// Reusable list item for displaying
 const ListItems = ({ data,statusUpdate }) => {
 
     const statusUpdateHandler =(id,row)=>{
@@ -27,8 +28,8 @@ const ListItems = ({ data,statusUpdate }) => {
     return (
         <List sx={{ padding: 0, width: 344 }}>
             <ListItem >
-                <ListItemAvatar>
-                    <Avatar sx={{ width: 95, height: 95 }} alt="Remy Sharp" src={data?.avatar} />
+                <ListItemAvatar >
+                    <Avatar sx={{ width: 95, height: 95,marginRight:2 }} alt="Remy Sharp" src={data?.avatar} />
                 </ListItemAvatar>
                 <ListItemText>
                     <Typography sx={style}>Date: {data.day}</Typography>

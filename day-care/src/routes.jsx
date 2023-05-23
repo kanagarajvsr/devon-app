@@ -1,16 +1,15 @@
 import { Route, Routes, Navigate} from "react-router-dom";
-import { SessionDetail, Sessions, News, Childrens, Home } from './pages';
-
-
+import { Sessions, News, Childrens, Home,AddNews, AddChildren } from './pages';
+// All the page routes are defined here.
  const AppRoutes = () => {
-
     return (
             <Routes>
                 <Route exact path="/" element={<Home />} />
                 <Route exact path="/news" element={<News />} />
+                <Route exact path="/news/add" element={<AddNews />} />
                 <Route exact path="/children" element={<Childrens />} />
+                <Route exact path="/children/add" element={<AddChildren />} />
                 <Route exact path="/sessions" element={<Sessions />} />
-                <Route exact path="/session/:id" element={<SessionDetail />} />
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
  

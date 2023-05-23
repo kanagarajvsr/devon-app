@@ -1,5 +1,6 @@
 import axios from './../utils/axios.js';
 
+//CURD operations for NEWS.
 function getNews() {
     return axios.get('/news'); 
 }

@@ -1,5 +1,5 @@
 import axios from '../utils/axios.js';
-
+//CURD operations for children.
 function getChildren() {
     return axios.get('/children');
 }
@@ -7,7 +7,7 @@ function postChildren(data) {
     return axios.post('/children',data);
 }
 function updateChildren(id,data) {
-    return axios.put(`/children/${id}`,{...data});
+    return axios.put(`/children/${id}`,data);
 }
 function deleteChildren(id) {
     return axios.delete(`/children/${id}`);

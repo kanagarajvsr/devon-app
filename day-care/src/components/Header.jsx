@@ -2,6 +2,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
+// Header components
  const Header = ({title}) => <AppBar position="fixed" open={false}>
     <Toolbar>
         <Typography variant="h6" noWrap component="div">

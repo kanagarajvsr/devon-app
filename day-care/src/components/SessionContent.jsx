@@ -17,9 +17,10 @@ const Item = styled(Paper)(({ theme }) => ({
 const GridTitle=({title})=><Grid item sx={{ padding:0 }}>
 <Item><Typography >{title}</Typography></Item>
 </Grid>
-
+// session content control component
 const Content = ({ data,statusUpdate }) => {
 
+    // this use function is use to seprate the session content like Whole day, Afternoon and Morning session content.
     const applyRender=(data)=> {
         const sessionList = {
             "Morning only": [],
@@ -29,6 +30,7 @@ const Content = ({ data,statusUpdate }) => {
         data?.forEach(session => {
             sessionList[`${session.product_name}`].push(<ListItems statusUpdate={statusUpdate} key={session.id} data={session} />)
         })
+        if(!data || data?.length===0) return " Sessions not available for selected date"
         return (
             <>
                 <Item>{sessionList["Morning only"]}</Item>
@@ -37,7 +39,7 @@ const Content = ({ data,statusUpdate }) => {
             </>
         )
     }
-
+ 
     return (
         <Grid container spacing={{ xs: 2, md: 1 }} columns={{ xs: 4, sm: 8, md: 9 }}>
             <Grid container spacing={1} mt={2} mb={1}>

@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import Typography from "../components/Typography";
-import { getChildren } from './../api/children';
-import Table from "../components/Table";
+import Typography from "../../components/Typography";
+import { getChildren } from '../../api/children';
+import Table from "../../components/Table";
 import Avatar from '@mui/material/Avatar';
+import Filter from './../../components/Filters';
+
 
 const CustomImage = ({ row }) => {
   return <Avatar sx={{ width: 50, height: 50 }}   src={row?.avatar} /> 
@@ -36,6 +38,7 @@ const SessionList = () => {
   return (
     <>
       <Typography variant="h6" label="Children" />
+      <Filter link="/children/add" label="create"/>
       <Table
         data={data.data}
         columns={columns}
