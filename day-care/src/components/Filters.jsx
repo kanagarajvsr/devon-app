@@ -8,10 +8,12 @@ export default function Filters({link,label}) {
       <Grid container item >
         <Grid item xs={5}>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={5}>
         </Grid>
-        <Grid item xs={1} >
+        <Grid item xs={2} >
           <Button
+          variant="outlined"
+          sx={{textTransform:"capitalize",justifyContent:"right"}}
             component={Link}
             to={link}
           >  {label} </Button>

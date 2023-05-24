@@ -12,7 +12,7 @@ function App() {
       <Sidebar /> {/* Application side menu has loaded */}
       <Box component="main"
         sx={{
-          flexGrow: 1, bgcolor: 'background.default', p: 3,
+          flexGrow: 1, bgcolor: '#f5f1f1', p: 3,
           marginTop: `60px`
         }}
       >

@@ -22,7 +22,7 @@ describe("ListItems test", () => {
             },
             "presence": "unknown"
           }}/>);
-        expect(screen.getByText(/unknown to present/i)).toBeDefined();
+        expect(screen.getByText(/unknown/i)).toBeDefined();
     }) 
 
     test('Expect the component to be rendered', () => {

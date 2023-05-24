@@ -62,7 +62,7 @@ const AddNews = () => {
                         <TextField
                             label="Author"
                             variant="standard"
-                            error={errors?.reporter?true:false}
+                            error={errors?.author?true:false}
                             {...register("author", {
                                 required: {
                                     value: true,

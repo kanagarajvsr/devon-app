@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useQuery, useMutation } from '@tanstack/react-query';
+import { useQuery, useMutation,useQueryClient } from '@tanstack/react-query';
 import SessionContent from "../components/SessionContent"; //
 import Table from "../components/Table"; // common table components for each page
 import { toast } from "react-toastify";
@@ -58,13 +58,18 @@ const currentFormatedDate = format(nextDate);
 
 
 const SessionList = () => {
-  const [selectedDate, setSelectedDate] = useState(currentFormatedDate); // Set the current date for the session
+  const queryClient = useQueryClient()
 
-  const { data, refresh } = useQuery({
-    queryKey: ['sessionsData', selectedDate],
+  const [selectedDate, setSelectedDate] = useState("2023-06-02"); // Set the current date for the session
+  const [group, setGroup] = useState(""); // Set the current date for the session
+
+   const { data } = useQuery({
+    queryKey: ['sessionsData', selectedDate,group],
     queryFn: async () => {
-      const sessionData = await getSessions(selectedDate); // Get the session data
-      const childrenData = await getChildren(selectedDate);// Get the children data
+      const param={params:{"day":selectedDate}}
+      if(group)param.params["group.name"] = group;
+      const sessionData = await getSessions(param); // Get the session data
+      const childrenData = await getChildren(selectedDate,group);// Get the children data
       return sessionData?.data.map((value) => { // merging the data based on child_id
         const childData = childrenData?.data.filter(b => value.child_id === b.id);
         value.child_name = childData[0]["name"];
@@ -73,15 +78,15 @@ const SessionList = () => {
 
       })
     }
-  })
-
+  }) 
   // Child Presence status update with react-query
-  const { mutate, isFetched } = useMutation(updateSessions, { 
+  const { mutate } = useMutation(updateSessions, { 
     onSuccess: () => { // success toast message with green color
       toast.success(`Presence status changed successfully!`, {
         position: "bottom-center",
         autoClose: 2000,
       });
+      queryClient.invalidateQueries({ queryKey: ['sessionsData',selectedDate,group] })
     },
     onError: (err) => { // error toast message with red color
       toast.error(`Presence status not changed ${err}!`, {
@@ -92,8 +97,9 @@ const SessionList = () => {
   });
 
   // Date filter for today, previous and next dates.
-  const dateFilter = (date) => {
+  const dataFilter = (date,group) => {
     setSelectedDate(date);
+    setGroup(group);
   };
 
   // Child Presence status update called from child component.
@@ -102,15 +108,13 @@ const SessionList = () => {
     delete row.child_name;
     row.presence = presenceStatus[row.presence];
     mutate(row); // this function use to update presence
-    if (isFetched) {
-      refresh(); // this function use to refresh the session data
-    }
   };
 
   return (
     <>
-      <Typography variant="h6" label="Sessions" />
-      <SessionFilters dateFilter={dateFilter} Date={selectedDate} />
+      <Typography variant="h6" label="Sessions overview" />
+      {group}
+      <SessionFilters dataFilter={dataFilter} Date={selectedDate} />
       <SessionContent data={data} statusUpdate={statusUpdate} />
       {/*   <Table 
       data={data}

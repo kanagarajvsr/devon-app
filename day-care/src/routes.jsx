@@ -4,7 +4,7 @@ import { Sessions, News, Childrens, Home,AddNews, AddChildren } from './pages';
  const AppRoutes = () => {
     return (
             <Routes>
-                <Route exact path="/" element={<Home />} />
+                <Route exact path="/" element={<Sessions />} />
                 <Route exact path="/news" element={<News />} />
                 <Route exact path="/news/add" element={<AddNews />} />
                 <Route exact path="/children" element={<Childrens />} />

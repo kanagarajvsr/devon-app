@@ -2,7 +2,7 @@ import axios from './../utils/axios.js';
 
 //CURD operations for sessions.
 function getSessions(param) {
-    return axios.get(`/sessions?day=${param}`);  
+    return axios.get(`/sessions`, param);  
 }
 function postSessions(data) {
     return axios.post(`/sessions`,data);

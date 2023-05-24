@@ -20,7 +20,7 @@ const News = () => {
   return (
     <>
       <Typography variant="h6" label="News" />
-      <Filter link="/news/add" label="create"/>
+      <Filter link="/news/add" label="Create new Post"/>
       {data?.data?.map((row) => (
         <Card key={row.id} sx={{ marginBottom: 1 }}>
           <CardContent >
