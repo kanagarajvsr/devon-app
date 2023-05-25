@@ -78,7 +78,7 @@
         "id": 1,
         "name": "Group 1"
       },
-      "presence": "picked up"
+      "presence": "unknown"
     },
     {
       "id": 102406,
@@ -91,7 +91,7 @@
         "id": 1,
         "name": "Group 1"
       },
-      "presence": "unknown"
+      "presence": "present"
     },
     {
       "id": 102407,
@@ -117,7 +117,7 @@
         "id": 3,
         "name": "Group 4"
       },
-      "presence": "present"
+      "presence": "picked up"
     },
     {
       "id": 102409,
@@ -130,7 +130,7 @@
         "id": 2,
         "name": "Group 2"
       },
-      "presence": "unknown"
+      "presence": "picked up"
     },
     {
       "id": 102505,

@@ -54,13 +54,8 @@ export default function SessionFilters({ dataFilter }) {
   return (
     <Grid container spacing={2}>
       <Grid container item >
-        <Grid item xs={3}>
-        
-        </Grid>
-        <Grid item xs={3}>
-          
-        </Grid>
-        <Grid item xs={6} sx={{display:"flex"}} >
+      
+        <Grid item xs={12} sx={{display:"flex",justifyContent:"right"}} >
           <Select
             value={group}
             onChange={handleChange}

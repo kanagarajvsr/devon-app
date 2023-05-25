@@ -4,16 +4,13 @@ import { Link } from "react-router-dom";
 //Table Filter menu
 export default function Filters({link,label}) {
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} pb={2}>
       <Grid container item >
-        <Grid item xs={5}>
-        </Grid>
-        <Grid item xs={5}>
-        </Grid>
-        <Grid item xs={2} >
+        
+        <Grid item xs={12} sx={{display:"flex",justifyContent:"right"}} >
           <Button
           variant="outlined"
-          sx={{textTransform:"capitalize",justifyContent:"right"}}
+          sx={{textTransform:"capitalize"}}
             component={Link}
             to={link}
           >  {label} </Button>
