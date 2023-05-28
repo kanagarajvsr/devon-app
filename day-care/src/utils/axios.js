@@ -16,4 +16,23 @@ instance.interceptors.response.use((response) => {
     // This use to handle the response error like 4xx
     return response;
 });
-export default instance;
+
+
+// Create Function to handle requests from the backend
+   const  callToBackend = async (shortUrl, method,data={}) => {
+    console.log(shortUrl, method,data)
+        const options = {
+            url: shortUrl,
+            method: method,
+            ...data,
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json;charset=UTF-8",
+            },
+          };
+
+        const response = await instance(options);
+        return response;
+    }
+ 
+export default callToBackend;

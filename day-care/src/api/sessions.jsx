@@ -1,17 +1,17 @@
-import axios from './../utils/axios.js';
+import  callToBackend from './../utils/axios.js';
 
 //CURD operations for sessions.
 function getSessions(param) {
-    return axios.get(`/sessions`, param);  
+    return callToBackend(`/sessions`,"GET", param);  
 }
 function postSessions(data) {
-    return axios.post(`/sessions`,data);
+    callToBackend(`/sessions`,"POST",{data:data});
 }
 function updateSessions(data) {
-    return axios.put(`/sessions/${data.id}`,data);
+    return callToBackend(`/sessions/${data.id}`,"PUT",{data:data});
 }
 function deleteSessions(id) {
-    return axios.delete(`/sessions/${id}`,{id});
+    return callToBackend(`/sessions/${id}`,"DELETE",{id:id});
 }
 
 export {

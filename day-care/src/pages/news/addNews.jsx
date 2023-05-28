@@ -37,6 +37,7 @@ const AddNews = () => {
     // After form validation the function use to call the save mutation 
     const onSubmit = async data => {
         data.id=Math.floor((Math.random() * 100) + 1); // to generate random id from 1 to 100
+        data.dateTime=new Date("2023-06-02");
           mutate(data);
           
     }

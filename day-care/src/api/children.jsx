@@ -1,16 +1,16 @@
-import axios from '../utils/axios.js';
+import callToBackend from '../utils/axios.js';
 //CURD operations for children.
 function getChildren() {
-    return axios.get('/children');
+    return callToBackend('/children',"GET");
 }
 function postChildren(data) {
-    return axios.post('/children',data);
+    return callToBackend('/children',"POST",{data});
 }
 function updateChildren(id,data) {
-    return axios.put(`/children/${id}`,data);
+    return callToBackend(`/children/${id}`,"PUT",{data});
 }
 function deleteChildren(id) {
-    return axios.delete(`/children/${id}`);
+    return callToBackend(`/children/${id}`,"DELETE");
 }
 
 export {

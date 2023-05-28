@@ -1,17 +1,17 @@
-import axios from './../utils/axios.js';
+import callToBackend from './../utils/axios.js';
 
 //CURD operations for NEWS.
 function getNews() {
-    return axios.get('/news'); 
+    return callToBackend('/news',"GET"); 
 }
 function postNews(data) {
-    return axios.post('/news',data);
+    return callToBackend('/news',"POST",{data});
 }
 function updateNews(id,data) {
-    return axios.put(`/news${id}`,data);
+    return callToBackend(`/news${id}`,"PUT",{data});
 }
 function deleteNews(id) {
-    return axios.get(`/news${id}`);
+    return callToBackend(`/news${id}`,"DELETE");
 }
 
 export {

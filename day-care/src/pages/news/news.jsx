@@ -26,6 +26,7 @@ const News = () => {
           <CardContent >
             <Typography variant="h6" label={row.title} />
             <Typography variant="subtitle1" label={row.author} />
+            <Typography variant="subtitle1" label={row.dateTime} />
             <Typography variant="body1" color="text.secondary" label={row.content} />
           </CardContent>
         </Card>
